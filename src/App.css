@@ -4,7 +4,6 @@
 
 .main-container {
 	position: relative;
-	background: pink;
 	height: 100vh;
 	width: 100vw;
 	display: flex;
@@ -14,12 +13,11 @@
 .options-sidebar {
 	color: azure;
 	height: 100%;
-	width: 20%;
+	width: 25%;
 	background-color: rgb(1, 0, 65)
 }
 
 .neighborhood-wrapper {
-	width: 80%;
+	width: 75%;
 	height: 100%;
-	background: aquamarine;
 }
