@@ -28,6 +28,7 @@ class Map extends Component {
 	}
 
 	render() {
+		console.log('Map render')
 		const markers = this.props.markers || []
 		return (
 			<GoogleMap
