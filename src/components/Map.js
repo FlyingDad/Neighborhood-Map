@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import {
   withGoogleMap,
   GoogleMap,
-  Marker,
+	Marker,
+	InfoWindow
 } from "react-google-maps";
-
+import MyMarker from './Marker';
 
 class Map extends Component {
 
@@ -26,6 +27,8 @@ class Map extends Component {
 		// reference to map stores in state
 		this.setState({map: map})
 	}
+
+	toggleInfoW
 
 	render() {
 		console.log('Map render')
@@ -50,7 +53,7 @@ class Map extends Component {
             {
               featureType: 'poi',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#00ff00'}]
+              stylers: [{color: '#00ffbb'}]
             },
             {
               featureType: 'poi.park',
@@ -121,10 +124,16 @@ class Map extends Component {
 				}}
   		>
 			{markers.map((marker, index) =>
-			    	<Marker
-						key={marker.lat+marker.lng}
-						position={{ ...marker }}
-					/>
+				<MyMarker/>
+			    // <Marker
+					// 	key={marker.lat+marker.lng}
+					// 	position={{ ...marker }}>
+					// 	onClick={props.onToggleOpen}
+					// 	<InfoWindow>
+        	// 	 		<div>TEST</div>
+      		//  </InfoWindow>
+					// </Marker>
+					
 			)}
 
   		</GoogleMap>

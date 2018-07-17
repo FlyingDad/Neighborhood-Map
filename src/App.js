@@ -76,7 +76,7 @@ class App extends Component {
 				</div>
 				<div className="neighborhood-wrapper">
 					<Map 
-						center={{lat: 36.1061458, lng: -115.172774}}
+						center={{lat: 36.1081458, lng: -115.172774}}
 						zoom={15}
 						containerElement={<div style={{ height: `100%`, width: `100%`  }}/>}
 						mapElement={<div style={{ height: `100%`, width: `100%` }}/>}
