@@ -3,20 +3,41 @@ import './App.css';
 import Options from './components/Options'
 import Map from './components/Map'
 import { getVenuInfo } from './components/Fouresquare'
+import { getFlickrData } from './util/Flickr'
 
 class App extends Component {
 
 	constructor(props){
 		super(props)
 		this.state={
-			reset: 0
+			reset: 0,
+			markers: [
+				{
+					name: 'Luxor', lat: 36.09551, lng: -115.176
+				},
+				{
+					name: 'Paris', lat: 36.1125414, lng: -115.170
+				},
+				{
+					name: 'Bellagio', lat: 36.1125414, lng: -115.176
+				},
+				{
+					name: 'Venetian', lat: 36.121174, lng:-115.1718466
+				},
+				{
+					name: 'Excalibur', lat: 36.0987653, lng: -115.1755
+				},
+				{
+					name: 'New York', lat: 36.1017723, lng: -115.1745215
+				}
+			]
 		}
 	}
 
 	componentDidMount(){
-		this.fetchFourSquareData()
+		//this.fetchFourSquareData()
 		//this.fetchYelpData()
-		//this.fetchFlickrData()
+		this.fetchFlickrData()
 	}
 
 	fetchFourSquareData() {
@@ -32,49 +53,11 @@ class App extends Component {
 		// })
 	}
 
-	fetchYelpData(){
-		const myHeaders = new Headers(
-			{
-				'Authorization': 'Bearer  MfE73q9xQCdwFISJadwW90D6JUTsGMdsboGiuvLucVL94xpuLmK54UmfFZgju2STLjE3mFWNEwKigHHqnn3cb1_v0d09XdDaNy8Yddp7iJXsMlnhPC8Thfcx7whNW3Yx'
-			}
-		)
-		fetch('https://api.yelp.com/v3/businesses/search?term=restaurants&latitude=36.1061458&longitude=-115.172774&price=3,4&categories=italian,steak&radius=1000',{
-			method: 'GET',
-			headers: myHeaders,
-			mode: 'no-cors'
-		}
-		).then(response => {
-			if(response.status === 200){
-				console.log(response)
-			}else (
-				console.log("Error code " + response.status)
-			)
-		})
-	}
 
 	fetchFlickrData(){
-		// filtering photos for:
-		// safe_search 2 (moderate)
-		// content type 1 (photos only)
-		// 5km radius 
-		// 20 per page
-		fetch('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=f7322df1cd1f8f5d748e7bc1759ffc3c&privacy_filter=1&safe_search=2&content_type=1&lat=36.1061458&lon=-115.172774&radius=5&per_page=20&format=json&tags=giada')
-		.then(response => {
-			if(response.status === 200) {
-				return response.text()
-			} else {
-				console.log(response.status)
-			}
-		}).then(text => {
-			//Response is in JSONP, so we have to dig out the object
-			//get the string inside the parens
-			let match = text.match(/\(.*\)/);
-			//strip the first and last paren
-			let jsonString = match[0].substring(1, match[0].length-1)
-			//convert resulting json string to an object
-			let flickrJson = JSON.parse(jsonString)
-			console.log(flickrJson.photos.photo)
-		})		
+
+		//getFlickrData()
+		
 	}
 	
 	resetMap(){
@@ -94,10 +77,10 @@ class App extends Component {
 				<div className="neighborhood-wrapper">
 					<Map 
 						center={{lat: 36.1061458, lng: -115.172774}}
-						zoom={15.5}
+						zoom={15}
 						containerElement={<div style={{ height: `100%`, width: `100%`  }}/>}
 						mapElement={<div style={{ height: `100%`, width: `100%` }}/>}
-						markers={[{lat: 36.1061458, lng: -115.172774}]}
+						markers={this.state.markers}
 					/>
 				</div>
       </div>
