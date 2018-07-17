@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Options from './components/Options'
 import Map from './components/Map'
+import { getVenuInfo } from './components/Fouresquare'
 
 class App extends Component {
 
@@ -19,13 +20,16 @@ class App extends Component {
 	}
 
 	fetchFourSquareData() {
-		fetch('https://api.foursquare.com/v2/venues/538514ce498e432045aea7a5?client_id=5GID1UK00VLW1GBDTWBBWMR3U2CS3B0KS0KIAL3RRMI5LN3U&client_secret=BJGZ1HK132ERDG2YWWC3SYVC50RNSDLRPNVSROCSNCJJ0YVC&v=20180601')
-		.then(response => {
-			return response.json()
+		getVenuInfo().then(response => {
+			console.log(response)
 		})
-		.then(data => {
-			console.log(data)
-		})
+		// fetch('https://api.foursquare.com/v2/venues/538514ce498e432045aea7a5?client_id=5GID1UK00VLW1GBDTWBBWMR3U2CS3B0KS0KIAL3RRMI5LN3U&client_secret=BJGZ1HK132ERDG2YWWC3SYVC50RNSDLRPNVSROCSNCJJ0YVC&v=20180601')
+		// .then(response => {
+		// 	return response.json()
+		// })
+		// .then(data => {
+		// 	console.log(data)
+		// })
 	}
 
 	fetchYelpData(){
