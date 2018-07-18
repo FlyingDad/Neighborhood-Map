@@ -11,7 +11,7 @@ class MyMarker extends Component {
   }
 
 	// Toggles InfoWindow 
-  onMarkerClick = (marker) => {
+  onMarkerClick = () => {
 		//console.log('on toggle', this.state.isOpen)
 		if(this.state.isOpen){
     	this.setState({
@@ -28,15 +28,15 @@ class MyMarker extends Component {
     return (
       <Marker
         key={this.props.index}
-        position={{ lat: 36.1081458, lng: -115.172774 }}
+        position={{ lat: this.props.position.lat, lng: this.props.position.lng }}
         // label='Test'
-        onClick={() => this.onMarkerClick(this)}
+        onClick={() => this.onMarkerClick()}
       >
         {this.state.isOpen && (
 					<InfoWindow 
-						onCloseClick={() => this.onMarkerClick(this)}
+						onCloseClick={() => this.onMarkerClick()}
 						>
-            <p>TEST123</p>
+            <p>{this.props.info}</p>
           </InfoWindow>
         )}
       </Marker>

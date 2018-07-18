@@ -13,22 +13,28 @@ class App extends Component {
 			reset: 0,
 			markers: [
 				{
-					name: 'Luxor', lat: 36.09551, lng: -115.176
+					name: 'Luxor', 
+					ll: {lat: 36.09551, lng: -115.176}
 				},
 				{
-					name: 'Paris', lat: 36.1125414, lng: -115.170
+					name: 'Paris',
+					ll: { lat: 36.1125414, lng: -115.170}
 				},
 				{
-					name: 'Bellagio', lat: 36.1125414, lng: -115.176
+					name: 'Bellagio',
+					ll: { lat: 36.1125414, lng: -115.176}
 				},
 				{
-					name: 'Venetian', lat: 36.121174, lng:-115.1718466
+					name: 'Venetian',
+					ll: { lat: 36.121174, lng:-115.1718466}
 				},
 				{
-					name: 'Excalibur', lat: 36.0987653, lng: -115.1755
+					name: 'Excalibur',
+					ll: { lat: 36.0987653, lng: -115.1755}		
 				},
 				{
-					name: 'New York', lat: 36.1017723, lng: -115.1745215
+					name: 'New York',
+					ll: { lat: 36.1017723, lng: -115.1745215}
 				}
 			]
 		}
