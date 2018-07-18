@@ -70,7 +70,7 @@ class Map extends Component {
             {
               featureType: "poi",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#00ffbb" }]
+              stylers: [{ color: "#009999" }]
             },
             {
               featureType: "poi.park",
@@ -144,6 +144,7 @@ class Map extends Component {
 					<MyMarker key={marker.ll.lat + marker.ll.lng} 
 					position={marker.ll}
 					info={marker.name}
+					photoId={marker.photoId}
 					>
           </MyMarker>
         ))}

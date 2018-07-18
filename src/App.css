@@ -20,11 +20,17 @@
 }
 
 #search {
-	
+	font-size: 1.1em;
 }
 
+.venue {
+	color: rgb(181, 252, 228);
+}
 
-
+.info-window a{
+	color: blue;
+	text-decoration: none;
+}
 
 .neighborhood-wrapper {
 	width: 75%;

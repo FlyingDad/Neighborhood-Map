@@ -10,33 +10,40 @@ class MyMarker extends Component {
     };
   }
 
-	// Toggles InfoWindow 
+  // Toggles InfoWindow
   onMarkerClick = () => {
-		//console.log('on toggle', this.state.isOpen)
-		if(this.state.isOpen){
-    	this.setState({
-      	isOpen: false
-		})} else {
-			this.setState({
-				isOpen: true
-		})}
-	};
-
+    //console.log('on toggle', this.state.isOpen)
+    if (this.state.isOpen) {
+      this.setState({
+        isOpen: false
+      });
+    } else {
+      this.setState({
+        isOpen: true
+      });
+    }
+  };
 
   render() {
 		//console.log('render marker')
+		const photoId = this.props.photoId
     return (
       <Marker
         key={this.props.index}
-        position={{ lat: this.props.position.lat, lng: this.props.position.lng }}
+        position={{
+          lat: this.props.position.lat,
+          lng: this.props.position.lng
+        }}
         // label='Test'
         onClick={() => this.onMarkerClick()}
       >
         {this.state.isOpen && (
-					<InfoWindow 
-						onCloseClick={() => this.onMarkerClick()}
-						>
-            <p>{this.props.info}</p>
+          <InfoWindow onCloseClick={() => this.onMarkerClick()}>
+            <div className='info-window'>
+              <h2>{this.props.info}</h2>
+							<p><img src={require('./img/' + photoId + '.jpg')} alt={photoId}/></p>
+              <a href="#">View photos</a>
+            </div>
           </InfoWindow>
         )}
       </Marker>

@@ -18,27 +18,33 @@ class App extends Component {
 			markers: [
 				{
 					name: 'Luxor Hotel & Casino', 
-					ll: {lat: 36.09551, lng: -115.176}
+					ll: {lat: 36.09551, lng: -115.176},
+					photoId: 'luxor'
 				},
 				{
 					name: 'Paris Las Vegas',
-					ll: { lat: 36.1125414, lng: -115.170}
+					ll: { lat: 36.1125414, lng: -115.170},
+					photoId: 'paris'
 				},
 				{
 					name: 'Bellagio Hotel & Casino',
-					ll: { lat: 36.1125414, lng: -115.176}
+					ll: { lat: 36.1125414, lng: -115.176},
+					photoId: 'bellagio'
 				},
 				{
 					name: 'The Venetian',
-					ll: { lat: 36.121174, lng:-115.1718466}
+					ll: { lat: 36.121174, lng:-115.1688466},
+					photoId: 'venetian'
 				},
 				{
 					name: 'Excalibur Hotel & Casino',
-					ll: { lat: 36.0987653, lng: -115.1755}		
+					ll: { lat: 36.0987653, lng: -115.1755},
+					photoId: 'excalibur'		
 				},
 				{
 					name: 'New York-New York Hotel & Casino',
-					ll: { lat: 36.1017723, lng: -115.1745215}
+					ll: { lat: 36.1017723, lng: -115.1745215},
+					photoId: 'newyork'
 				}
 			]
 		}

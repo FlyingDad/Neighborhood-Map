@@ -48,7 +48,7 @@ class Options extends Component {
 				<div>
 					<div>
 						{Venues.map((e) => 
-							<p key={e.name}>{e.name}</p>
+							<p  className='venue' key={e.name}>{e.name}</p>
 						)}
 					</div>
 				</div>
