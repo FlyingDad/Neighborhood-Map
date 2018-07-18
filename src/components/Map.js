@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import {
   withGoogleMap,
-  GoogleMap,
-  Marker,
-  InfoWindow
+  GoogleMap
 } from "react-google-maps";
 import MyMarker from "./MyMarker";
 
@@ -11,12 +9,26 @@ class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      map: null
+			map: null
+			// center: {
+			// 	lat: 36.1081458,
+			// 	lng: -115.172774
+			// },
+			// ll: {
+			// 	lat: 36.1081458,
+			// 	lng: -115.172774
+			// }
     };
   }
 
   mapmoved() {
-    console.log("Map moved: " + JSON.stringify(this.state.map.getCenter()));
+		// console.log("Map moved: " + JSON.stringify(this.state.map.getCenter()));
+		//let movedLocation = JSON.stringify(this.state.map.getCenter())
+		//movedLocation = JSON.parse(movedLocation)
+		//console.log(movedLocation)
+		//this.state.map.setCenter({lat: 36.1081458, lng: -115.172774})
+		//this.setState({ll: {lat: movedLocation.lat, lng: movedLocation.lng}})
+		//this.setState({center: {lat: 36.1081458, lng: -115.172774}})
   }
 
   mapLoaded(map) {
@@ -26,17 +38,15 @@ class Map extends Component {
     this.setState({ map: map });
   }
 
-  toggleInfoW;
-
   render() {
-    console.log("Map render");
+		//console.log("Map render");
+		//console.log(this.props.center)
 		const markers = this.props.markers || [];
-		console.log(markers[0].ll)
     return (
       <GoogleMap
         //get a ref to the GoogleMap dom
         ref={this.mapLoaded.bind(this)}
-        defaultCenter={this.props.center}
+        center={this.props.center}
         defaultZoom={this.props.zoom}
         onDragEnd={this.mapmoved.bind(this)}
         options={{
@@ -133,7 +143,7 @@ class Map extends Component {
         {markers.map((marker, index) => (
 					<MyMarker key={marker.ll.lat + marker.ll.lng} 
 					position={marker.ll}
-					info={'test ' + index}
+					info={marker.name}
 					>
           </MyMarker>
         ))}

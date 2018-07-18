@@ -11,29 +11,33 @@ class App extends Component {
 		super(props)
 		this.state={
 			reset: 0,
+			homeCoords: {
+				lat: 36.1081458,
+				lng: -115.172774
+			},
 			markers: [
 				{
-					name: 'Luxor', 
+					name: 'Luxor Hotel & Casino', 
 					ll: {lat: 36.09551, lng: -115.176}
 				},
 				{
-					name: 'Paris',
+					name: 'Paris Las Vegas',
 					ll: { lat: 36.1125414, lng: -115.170}
 				},
 				{
-					name: 'Bellagio',
+					name: 'Bellagio Hotel & Casino',
 					ll: { lat: 36.1125414, lng: -115.176}
 				},
 				{
-					name: 'Venetian',
+					name: 'The Venetian',
 					ll: { lat: 36.121174, lng:-115.1718466}
 				},
 				{
-					name: 'Excalibur',
+					name: 'Excalibur Hotel & Casino',
 					ll: { lat: 36.0987653, lng: -115.1755}		
 				},
 				{
-					name: 'New York',
+					name: 'New York-New York Hotel & Casino',
 					ll: { lat: 36.1017723, lng: -115.1745215}
 				}
 			]
@@ -77,7 +81,8 @@ class App extends Component {
       <div className="main-container">
         <div className="options-sidebar">
 					<Options 
-						resetMap={this.resetMap.bind(this)}
+						// resetMap={this.resetMap.bind(this)}
+						venueInfo={this.state.markers}
 					/>
 				</div>
 				<div className="neighborhood-wrapper">
