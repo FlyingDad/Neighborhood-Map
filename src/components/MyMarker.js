@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from 'prop-types'
 import { Marker, InfoWindow } from "react-google-maps"
+import Gallery from './gallery'
 
 class MyMarker extends Component {
   constructor(props) {
@@ -23,7 +24,11 @@ class MyMarker extends Component {
         isOpen: true
       });
     }
-  };
+	}
+	
+	viewPhotos() {
+		Gallery(['testg'])
+	}
 
   render() {
 		//console.log('render marker')
@@ -43,7 +48,7 @@ class MyMarker extends Component {
             <div className='info-window'>
               <h2>{this.props.info}</h2>
 							<p><img src={require('./img/' + photoId + '.jpg')} alt={photoId}/></p>
-              <a href="#">View photos</a>
+              <p className='view-photos' onClick={this.viewPhotos}>View photos</p>
             </div>
           </InfoWindow>
         )}

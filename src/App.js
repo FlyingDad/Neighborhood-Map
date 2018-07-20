@@ -56,7 +56,7 @@ class App extends Component {
 		//this.fetchFourSquareData()
 		//this.fetchYelpData()
 		//this.setState({filteredMarkers: this.state.markers})
-		this.fetchFlickrData()
+		//this.fetchFlickrData()
 	}
 
 	fetchFourSquareData() {
@@ -75,7 +75,9 @@ class App extends Component {
 
 	fetchFlickrData(){
 
-		//getFlickrData()
+		getFlickrData().then(photoUrls => {
+			//console.log(photoUrls)
+		})
 		
 	}
 
