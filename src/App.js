@@ -5,6 +5,38 @@ import Map from './components/Map'
 import { getVenuInfo } from './components/Fouresquare'
 import { getFlickrData } from './util/Flickr'
 
+const MyMarkers = [
+	{
+		name: 'Luxor Hotel & Casino', 
+		ll: {lat: 36.09551, lng: -115.176},
+		photoId: 'luxor'
+	},
+	{
+		name: 'Paris Las Vegas',
+		ll: { lat: 36.1125414, lng: -115.170},
+		photoId: 'paris'
+	},
+	{
+		name: 'Bellagio Hotel & Casino',
+		ll: { lat: 36.1125414, lng: -115.176},
+		photoId: 'bellagio'
+	},
+	{
+		name: 'The Venetian',
+		ll: { lat: 36.121174, lng:-115.1688466},
+		photoId: 'venetian'
+	},
+	{
+		name: 'Excalibur Hotel & Casino',
+		ll: { lat: 36.0987653, lng: -115.1755},
+		photoId: 'excalibur'		
+	},
+	{
+		name: 'New York-New York Hotel & Casino',
+		ll: { lat: 36.1017723, lng: -115.1745215},
+		photoId: 'newyork'
+	}
+]
 class App extends Component {
 
 	constructor(props){
@@ -15,44 +47,15 @@ class App extends Component {
 				lat: 36.1081458,
 				lng: -115.172774
 			},
-			markers: [
-				{
-					name: 'Luxor Hotel & Casino', 
-					ll: {lat: 36.09551, lng: -115.176},
-					photoId: 'luxor'
-				},
-				{
-					name: 'Paris Las Vegas',
-					ll: { lat: 36.1125414, lng: -115.170},
-					photoId: 'paris'
-				},
-				{
-					name: 'Bellagio Hotel & Casino',
-					ll: { lat: 36.1125414, lng: -115.176},
-					photoId: 'bellagio'
-				},
-				{
-					name: 'The Venetian',
-					ll: { lat: 36.121174, lng:-115.1688466},
-					photoId: 'venetian'
-				},
-				{
-					name: 'Excalibur Hotel & Casino',
-					ll: { lat: 36.0987653, lng: -115.1755},
-					photoId: 'excalibur'		
-				},
-				{
-					name: 'New York-New York Hotel & Casino',
-					ll: { lat: 36.1017723, lng: -115.1745215},
-					photoId: 'newyork'
-				}
-			]
+			markers: MyMarkers,
+			filteredMarkers: MyMarkers
 		}
 	}
 
 	componentDidMount(){
 		//this.fetchFourSquareData()
 		//this.fetchYelpData()
+		//this.setState({filteredMarkers: this.state.markers})
 		this.fetchFlickrData()
 	}
 
@@ -75,6 +78,11 @@ class App extends Component {
 		//getFlickrData()
 		
 	}
+
+	updateFilter(filteredVenues) {
+		console.log('app filtered return', filteredVenues)
+		this.setState({filteredMarkers: filteredVenues});
+	}
 	
 	resetMap(){
 		console.log('reset map')
@@ -89,6 +97,7 @@ class App extends Component {
 					<Options 
 						// resetMap={this.resetMap.bind(this)}
 						venueInfo={this.state.markers}
+						updateFilter={this.updateFilter.bind(this)}
 					/>
 				</div>
 				<div className="neighborhood-wrapper">
@@ -97,7 +106,7 @@ class App extends Component {
 						zoom={15}
 						containerElement={<div style={{ height: `100%`, width: `100%`  }}/>}
 						mapElement={<div style={{ height: `100%`, width: `100%` }}/>}
-						markers={this.state.markers}
+						markers={this.state.filteredMarkers}
 					/>
 				</div>
       </div>

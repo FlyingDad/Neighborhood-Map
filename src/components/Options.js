@@ -18,12 +18,22 @@ class Options extends Component {
 	// 	this.setState({venues: this.props.venueInfo})
 	// }
   updateQuery = (query) => {
-    this.setState({query: query.trim()})
+		//console.log(query)
+
+		this.setState({query: query.trim()})
+		//console.log(query, this.state.venues)
+		let filteredVenues
+		const match1 = new RegExp(escapeRegExp(query), 'i')
+			filteredVenues = this.state.venues.filter((venue) => 
+			match1.test(venue.name))
+
+			//console.log('update query', filteredVenues)
+		this.props.updateFilter(filteredVenues)
   }
 
-  clearQuery = () => {
-    this.setState({query: ''})
-  }
+  // clearQuery = () => {
+  //   this.setState({query: ''})
+  // }
 
 	render() {
 		//console.log(this.state.venues)
