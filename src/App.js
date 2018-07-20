@@ -3,7 +3,7 @@ import './App.css';
 import Options from './components/Options'
 import Map from './components/Map'
 import { getVenuInfo } from './components/Fouresquare'
-import { getFlickrData } from './util/Flickr'
+//import { getFlickrData } from './util/Flickr'
 
 const MyMarkers = [
 	{
@@ -73,13 +73,13 @@ class App extends Component {
 	}
 
 
-	fetchFlickrData(){
+	// fetchFlickrData(){
 
-		getFlickrData().then(photoUrls => {
-			//console.log(photoUrls)
-		})
+	// 	getFlickrData().then(photoUrls => {
+	// 		//console.log(photoUrls)
+	// 	})
 		
-	}
+	// }
 
 	updateFilter(filteredVenues) {
 		//console.log('app filtered return', filteredVenues)

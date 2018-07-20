@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from 'prop-types'
 import { Marker, InfoWindow } from "react-google-maps"
+import VenueLightbox from './Lightbox'
 import Gallery from './gallery'
 
 class MyMarker extends Component {
@@ -8,7 +9,8 @@ class MyMarker extends Component {
     super(props);
 
     this.state = {
-      isOpen: false
+			isOpen: false,
+			showPhotos: false
     };
   }
 
@@ -17,7 +19,8 @@ class MyMarker extends Component {
     //console.log('on toggle', this.state.isOpen)
     if (this.state.isOpen) {
       this.setState({
-        isOpen: false
+				isOpen: false,
+				showPhotos: false
       });
     } else {
       this.setState({
@@ -27,7 +30,9 @@ class MyMarker extends Component {
 	}
 	
 	viewPhotos() {
-		Gallery(['testg'])
+		//Gallery(['testg'])
+		//VenueLightbox();
+		this.setState({showPhotos: true})
 	}
 
   render() {
@@ -48,10 +53,13 @@ class MyMarker extends Component {
             <div className='info-window'>
               <h2>{this.props.info}</h2>
 							<p><img src={require('./img/' + photoId + '.jpg')} alt={photoId}/></p>
-              <p className='view-photos' onClick={this.viewPhotos}>View photos</p>
+              <p className='view-photos' onClick={this.viewPhotos.bind(this)}>View photos</p>
             </div>
           </InfoWindow>
-        )}
+				)}
+				{this.state.showPhotos && (
+					<VenueLightbox/>
+				)}
       </Marker>
     );
   }
