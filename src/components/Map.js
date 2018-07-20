@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
+import PropTypes from 'prop-types'
 import {
   withGoogleMap,
   GoogleMap
 } from "react-google-maps";
-import MyMarker from "./MyMarker";
+import MyMarker from "./MyMarker"
 
 class Map extends Component {
   constructor(props) {
@@ -151,6 +152,12 @@ class Map extends Component {
       </GoogleMap>
     );
   }
+}
+
+Map.propTypes = {
+	center: PropTypes.object.isRequired,
+	markers: PropTypes.array.isRequired,
+	zoom: PropTypes.number.isRequired
 }
 
 // withGoogleMap is a Higher Order Component (HOC), so we wrap the map in it

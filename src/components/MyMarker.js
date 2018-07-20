@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import { Marker, InfoWindow } from "react-google-maps";
+import React, { Component } from "react"
+import PropTypes from 'prop-types'
+import { Marker, InfoWindow } from "react-google-maps"
 
 class MyMarker extends Component {
   constructor(props) {
@@ -49,6 +50,12 @@ class MyMarker extends Component {
       </Marker>
     );
   }
+}
+
+MyMarker.propTypes = {
+	info: PropTypes.string.isRequired,
+	photoId: PropTypes.string.isRequired,
+	position: PropTypes.object.isRequired,
 }
 
 export default MyMarker;

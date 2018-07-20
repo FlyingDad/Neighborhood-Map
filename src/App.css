@@ -21,6 +21,13 @@
 
 #search {
 	font-size: 1.1em;
+	border-radius: 3px;
+}
+
+#reset-search {
+	font-size: 0.8em;
+	margin-left: 15px;
+	border-radius: 3px;
 }
 
 .venue {

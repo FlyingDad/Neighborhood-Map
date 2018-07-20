@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
 import sortby from 'sort-by'
@@ -8,6 +8,8 @@ class Options extends Component {
 
 	constructor(props){
 		super(props)
+		// Need this ref so we can clear the input text
+		this.queryInput = React.createRef();
 		this.state = {
 			venues: this.props.venueInfo,
 			query: ''
@@ -31,9 +33,12 @@ class Options extends Component {
 		this.props.updateFilter(filteredVenues)
   }
 
-  // clearQuery = () => {
-  //   this.setState({query: ''})
-  // }
+  clearQuery = () => {
+		this.setState({query: ''})
+		this.updateQuery('')
+		// clear the input search text, way cool
+		this.queryInput.current.value = ''
+  }
 
 	render() {
 		//console.log(this.state.venues)
@@ -48,12 +53,13 @@ class Options extends Component {
     }
     Venues.sort(sortby('name'))
 		return(
-			<div>
-				
-				{/* <button onClick={this.props.resetMap}>Reset Map</button> */}
+			<div>	
 				<div>
 					<input id='search' type='text' placeholder='Search for restaurant' autoComplete='off'
-					onChange={(event)=> this.updateQuery(event.target.value)}/>
+					onChange={(event)=> this.updateQuery(event.target.value)}
+					ref={this.queryInput}
+				/>
+				<button id='reset-search' onClick={this.clearQuery}>Reset</button>
 				</div>
 				<div>
 					<div>
@@ -65,6 +71,11 @@ class Options extends Component {
 			</div>
 		)
 	}
+}
+
+Options.propTypes = {
+	updateFilter: PropTypes.func.isRequired,
+	venueInfo: PropTypes.array.isRequired
 }
 
 export default Options

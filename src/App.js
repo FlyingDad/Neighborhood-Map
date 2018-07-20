@@ -80,17 +80,17 @@ class App extends Component {
 	}
 
 	updateFilter(filteredVenues) {
-		console.log('app filtered return', filteredVenues)
+		//console.log('app filtered return', filteredVenues)
 		this.setState({filteredMarkers: filteredVenues});
 	}
 	
 	resetMap(){
-		console.log('reset map')
+		//console.log('reset map')
 		this.setState({reset: this.state.reset + 1})
 	}
 
   render() {
-		console.log('App render')
+		//console.log('App render')
     return (
       <div className="main-container">
         <div className="options-sidebar">
