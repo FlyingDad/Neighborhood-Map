@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import Options from './components/Options'
 import Map from './components/Map'
-import { getVenuInfo } from './components/Fouresquare'
-//import { getFlickrData } from './util/Flickr'
 
 const MyMarkers = [
 	{
@@ -52,52 +50,19 @@ class App extends Component {
 		}
 	}
 
-	componentDidMount(){
-		//this.fetchFourSquareData()
-		//this.fetchYelpData()
-		//this.setState({filteredMarkers: this.state.markers})
-		//this.fetchFlickrData()
-	}
-
-	fetchFourSquareData() {
-		getVenuInfo().then(response => {
-			console.log(response)
-		})
-		// fetch('https://api.foursquare.com/v2/venues/538514ce498e432045aea7a5?client_id=5GID1UK00VLW1GBDTWBBWMR3U2CS3B0KS0KIAL3RRMI5LN3U&client_secret=BJGZ1HK132ERDG2YWWC3SYVC50RNSDLRPNVSROCSNCJJ0YVC&v=20180601')
-		// .then(response => {
-		// 	return response.json()
-		// })
-		// .then(data => {
-		// 	console.log(data)
-		// })
-	}
-
-
-	// fetchFlickrData(){
-
-	// 	getFlickrData().then(photoUrls => {
-	// 		//console.log(photoUrls)
-	// 	})
-		
-	// }
-
 	updateFilter(filteredVenues) {
-		//console.log('app filtered return', filteredVenues)
-		this.setState({filteredMarkers: filteredVenues});
+		this.setState({filteredMarkers: filteredVenues})
 	}
 	
-	resetMap(){
-		//console.log('reset map')
-		this.setState({reset: this.state.reset + 1})
-	}
+	// resetMap(){
+	// 	this.setState({reset: this.state.reset + 1})
+	// }
 
   render() {
-		//console.log('App render')
     return (
       <div className="main-container">
         <div className="options-sidebar">
 					<Options 
-						// resetMap={this.resetMap.bind(this)}
 						venueInfo={this.state.markers}
 						updateFilter={this.updateFilter.bind(this)}
 					/>
@@ -112,8 +77,8 @@ class App extends Component {
 					/>
 				</div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

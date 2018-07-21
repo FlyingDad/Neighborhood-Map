@@ -3,33 +3,24 @@ import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
 import sortby from 'sort-by'
 
-
 class Options extends Component {
 
 	constructor(props){
 		super(props)
 		// Need this ref so we can clear the input text
-		this.queryInput = React.createRef();
+		this.queryInput = React.createRef()
 		this.state = {
 			venues: this.props.venueInfo,
 			query: ''
 		}
 	}
 
-	// componentDidMount(){
-	// 	this.setState({venues: this.props.venueInfo})
-	// }
   updateQuery = (query) => {
-		//console.log(query)
-
 		this.setState({query: query.trim()})
-		//console.log(query, this.state.venues)
 		let filteredVenues
 		const match1 = new RegExp(escapeRegExp(query), 'i')
 			filteredVenues = this.state.venues.filter((venue) => 
 			match1.test(venue.name))
-
-			//console.log('update query', filteredVenues)
 		this.props.updateFilter(filteredVenues)
   }
 
@@ -41,9 +32,7 @@ class Options extends Component {
   }
 
 	render() {
-		//console.log(this.state.venues)
 		const {query} = this.state
-		//debugger
     let Venues
     if (query) {
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
@@ -55,7 +44,7 @@ class Options extends Component {
 		return(
 			<div>	
 				<div>
-					<input id='search' type='text' placeholder='Search for restaurant' autoComplete='off'
+					<input id='search' type='text' placeholder='Search for venue' autoComplete='off'
 					onChange={(event)=> this.updateQuery(event.target.value)}
 					ref={this.queryInput}
 				/>

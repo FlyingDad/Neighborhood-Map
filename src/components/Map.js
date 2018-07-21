@@ -3,53 +3,33 @@ import PropTypes from 'prop-types'
 import {
   withGoogleMap,
   GoogleMap
-} from "react-google-maps";
+} from "react-google-maps"
 import MyMarker from "./MyMarker"
 
 class Map extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
 			map: null
-			// center: {
-			// 	lat: 36.1081458,
-			// 	lng: -115.172774
-			// },
-			// ll: {
-			// 	lat: 36.1081458,
-			// 	lng: -115.172774
-			// }
-    };
-  }
-
-  mapmoved() {
-		// console.log("Map moved: " + JSON.stringify(this.state.map.getCenter()));
-		//let movedLocation = JSON.stringify(this.state.map.getCenter())
-		//movedLocation = JSON.parse(movedLocation)
-		//console.log(movedLocation)
-		//this.state.map.setCenter({lat: 36.1081458, lng: -115.172774})
-		//this.setState({ll: {lat: movedLocation.lat, lng: movedLocation.lng}})
-		//this.setState({center: {lat: 36.1081458, lng: -115.172774}})
+    }
   }
 
   mapLoaded(map) {
     // We only need to save the ref one time
-    if (this.state.map != null) return;
+    if (this.state.map != null) return
     // reference to map stores in state
-    this.setState({ map: map });
+    this.setState({ map: map })
   }
 
   render() {
-		//console.log("Map render");
-		//console.log(this.props.center)
-		const markers = this.props.markers || [];
+		const markers = this.props.markers || []
     return (
       <GoogleMap
         //get a ref to the GoogleMap dom
         ref={this.mapLoaded.bind(this)}
         center={this.props.center}
         defaultZoom={this.props.zoom}
-        onDragEnd={this.mapmoved.bind(this)}
+        //onDragEnd={this.mapmoved.bind(this)}
         options={{
           streetViewControl: false,
           mapTypeControl: false,
@@ -150,7 +130,7 @@ class Map extends Component {
           </MyMarker>
         ))}
       </GoogleMap>
-    );
+    )
   }
 }
 
@@ -161,4 +141,4 @@ Map.propTypes = {
 }
 
 // withGoogleMap is a Higher Order Component (HOC), so we wrap the map in it
-export default withGoogleMap(Map);
+export default withGoogleMap(Map)
