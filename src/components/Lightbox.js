@@ -26,6 +26,12 @@ export default class VenueLightbox extends Component {
 		})	
 	}
 
+	onClose() {
+		this.setState({ isOpen: false })
+
+		this.props.onClosePhotos()
+	}
+
   render() {
     const { photoIndex, isOpen, images } = this.state
     return (
@@ -40,7 +46,7 @@ export default class VenueLightbox extends Component {
             mainSrc={images[photoIndex]}
             nextSrc={images[(photoIndex + 1) % images.length]}
             prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-            onCloseRequest={() => this.setState({ isOpen: false })}
+            onCloseRequest={this.onClose.bind(this)}
             onMovePrevRequest={() =>
               this.setState({
                 photoIndex: (photoIndex + images.length - 1) % images.length,
@@ -50,7 +56,7 @@ export default class VenueLightbox extends Component {
               this.setState({
                 photoIndex: (photoIndex + 1) % images.length,
               })
-            }
+						}
           />
         )}
       </div>
@@ -59,5 +65,6 @@ export default class VenueLightbox extends Component {
 }
 
 VenueLightbox.propTypes = {
-	venue: PropTypes.string.isRequired
+	venue: PropTypes.string.isRequired,
+	onClosePhotos: PropTypes.func.isRequired
 }

@@ -27,6 +27,12 @@ class MyMarker extends Component {
       });
     }
 	}
+
+	// This resets the showing photo state so if show photos is clicked
+	// again before InfoWindow is closed, they will be displayed
+	onClosePhotos(){
+		this.setState({showPhotos: false});
+	}
 	
 	viewPhotos() {
 		this.setState({showPhotos: true})
@@ -54,7 +60,10 @@ class MyMarker extends Component {
           </InfoWindow>
 				)}
 				{this.state.showPhotos && (
-					<VenueLightbox venue={this.props.photoId}/>
+					<VenueLightbox 
+					venue={this.props.photoId}
+					onClosePhotos={() => this.onClosePhotos()}
+					/>
 				)}
       </Marker>
 			
