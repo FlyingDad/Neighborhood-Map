@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
 import { getFlickrData } from '../util/Flickr'
@@ -9,7 +10,7 @@ export default class VenueLightbox extends Component {
     this.state = {
       photoIndex: 0,
 			isOpen: false,
-			images: ['https://farm2.staticflickr.com/1821/29613079948_4e53a3dd52_n.jpg']
+			images: ['']
     }
 	}
 	
@@ -19,8 +20,9 @@ export default class VenueLightbox extends Component {
 	}
 
 	fetchFlickrData(){
+		this.setState({isOpen: true});
 		getFlickrData(this.props.venue).then(photoUrls => {
-			this.setState({images: photoUrls, isOpen: true})
+			this.setState({images: photoUrls})
 		})	
 	}
 
@@ -54,4 +56,8 @@ export default class VenueLightbox extends Component {
       </div>
     )
   }
+}
+
+VenueLightbox.propTypes = {
+	venue: PropTypes.string.isRequired
 }
