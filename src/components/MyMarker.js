@@ -50,12 +50,14 @@ class MyMarker extends Component {
 							<p><img src={require('./img/' + photoId + '.jpg')} alt={photoId}/></p>
               <p className='view-photos' onClick={this.viewPhotos.bind(this)}>View photos</p>
             </div>
+						
           </InfoWindow>
 				)}
 				{this.state.showPhotos && (
 					<VenueLightbox venue={this.props.photoId}/>
 				)}
       </Marker>
+			
     );
   }
 }
