@@ -39,6 +39,10 @@ class MyMarker extends Component {
 	}
 
   render() {
+		let bounce
+		if(this.props.markerBounce){
+			bounce = window.google.maps.Animation.BOUNCE
+		}
 		const photoId = this.props.photoId
     return (
       <Marker
@@ -46,7 +50,8 @@ class MyMarker extends Component {
         position={{
           lat: this.props.position.lat,
           lng: this.props.position.lng
-        }}
+				}}
+				defaultAnimation={bounce}//{window.google.maps.Animation.BOUNCE}
         onClick={() => this.onMarkerClick()}
       >
         {this.state.isOpen && (

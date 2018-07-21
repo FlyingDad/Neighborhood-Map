@@ -126,6 +126,7 @@ class Map extends Component {
 					position={marker.ll}
 					info={marker.name}
 					photoId={marker.photoId}
+					markerBounce={marker.bounce}
 					>
           </MyMarker>
         ))}

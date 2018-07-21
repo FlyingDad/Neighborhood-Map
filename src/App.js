@@ -7,32 +7,38 @@ const MyMarkers = [
 	{
 		name: 'Luxor Hotel & Casino', 
 		ll: {lat: 36.09551, lng: -115.176},
-		photoId: 'luxor'
+		photoId: 'luxor',
+		bounce: false
 	},
 	{
 		name: 'Paris Las Vegas',
 		ll: { lat: 36.1125414, lng: -115.170},
-		photoId: 'paris'
+		photoId: 'paris',
+		bounce: false
 	},
 	{
 		name: 'Bellagio Hotel & Casino',
 		ll: { lat: 36.1125414, lng: -115.176},
-		photoId: 'bellagio'
+		photoId: 'bellagio',
+		bounce: false
 	},
 	{
 		name: 'The Venetian',
 		ll: { lat: 36.121174, lng:-115.1688466},
-		photoId: 'venetian'
+		photoId: 'venetian',
+		bounce: false
 	},
 	{
 		name: 'Excalibur Hotel & Casino',
 		ll: { lat: 36.0987653, lng: -115.1755},
-		photoId: 'excalibur'		
+		photoId: 'excalibur'	,
+		bounce: false	
 	},
 	{
 		name: 'New York-New York Hotel & Casino',
 		ll: { lat: 36.1017723, lng: -115.1745215},
-		photoId: 'newyork'
+		photoId: 'newyork',
+		bounce: false
 	}
 ]
 class App extends Component {
