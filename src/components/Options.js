@@ -11,6 +11,7 @@ class Options extends Component {
 		this.queryInput = React.createRef()
 		this.state = {
 			venues: this.props.venueInfo,
+			filteredVenues: this.props.venueInfo,
 			query: ''
 		}
 	}
@@ -22,6 +23,7 @@ class Options extends Component {
 			filteredVenues = this.state.venues.filter((venue) => 
 			match1.test(venue.name))
 		this.props.updateFilter(filteredVenues)
+		this.setState({filteredVenues: filteredVenues})
   }
 
   clearQuery = () => {
@@ -29,9 +31,36 @@ class Options extends Component {
 		this.updateQuery('')
 		// clear the input search text, way cool
 		this.queryInput.current.value = ''
-  }
+	}
+	
+	onMouseOver(listItem, index){
+		let venueName = listItem.name
+		console.log(venueName)
+		// listItem.bounce = true
+		let filteredVenues = this.state.filteredVenues
+		let selectedItem = this.state.filteredVenues.slice(index, index + 1)[0]
+		selectedItem.bounce = !selectedItem.bounce
+		this.setState({
+			filteredVenues: filteredVenues.slice(0, index)
+				.concat([selectedItem])
+				.concat(filteredVenues.slice(index + 1))
+		});
+		//console.table(selectedItem)
+		this.updateQuery(this.state.query)
+		// //console.log(venues)
+		// venues.forEach(venue => {
+		// 	//console.log(venue)
+		// 	if(venue.name == listItem.name){
+		// 		venue.bounce = true
+		// 		console.log('match')
+		// 	}
+		// });
+		// //this.setState({venues: venues});
+		// this.props.updateFilter(venues)
+	}
 
 	render() {
+		console.log("App render")
 		const {query} = this.state
     let Venues
     if (query) {
@@ -52,8 +81,15 @@ class Options extends Component {
 				</div>
 				<div>
 					<div>
-						{Venues.map((e) => 
-							<p  className='venue' key={e.name}>{e.name}</p>
+						{Venues.map((venue, index) => 
+							<p 
+							className='venue' 
+							key={index}
+							onMouseEnter={()=>this.onMouseOver(venue, index)}
+							onMouseLeave={()=>this.onMouseOver(venue, index)}
+							>
+							{venue.name}							
+							</p>
 						)}
 					</div>
 				</div>

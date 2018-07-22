@@ -57,6 +57,7 @@ class App extends Component {
 	}
 
 	updateFilter(filteredVenues) {
+		console.log('updating filtered')
 		this.setState({filteredMarkers: filteredVenues})
 	}
 	
