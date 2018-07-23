@@ -5,40 +5,52 @@ import Map from './components/Map'
 
 const MyMarkers = [
 	{
-		name: 'Luxor Hotel & Casino', 
+		name: 'Luxor', 
 		ll: {lat: 36.09551, lng: -115.176},
 		photoId: 'luxor',
-		bounce: false
+		bounce: false,
+		infoTip: 'Luxor Sky Beam is one of the strongest beams of light in the world',
+		infoTipActive: false
 	},
 	{
 		name: 'Paris Las Vegas',
 		ll: { lat: 36.1125414, lng: -115.170},
 		photoId: 'paris',
-		bounce: false
+		bounce: false,
+		infoTip: 'Has a half scale, 540 foot replica of the Eiffel Tower',
+		infoTipActive: false
 	},
 	{
-		name: 'Bellagio Hotel & Casino',
+		name: 'Bellagio',
 		ll: { lat: 36.1125414, lng: -115.176},
 		photoId: 'bellagio',
-		bounce: false
+		bounce: false,
+		infoTip: 'There are 1,200 dancing fountains in front of the Bellagio',
+		infoTipActive: false
 	},
 	{
 		name: 'The Venetian',
 		ll: { lat: 36.121174, lng:-115.1688466},
 		photoId: 'venetian',
-		bounce: false
+		bounce: false,
+		infoTip: 'Design inspired by Venice, Italy, and features architectural replicas of various Venetian landmarks',
+		infoTipActive: false
 	},
 	{
-		name: 'Excalibur Hotel & Casino',
+		name: 'Excalibur',
 		ll: { lat: 36.0987653, lng: -115.1755},
 		photoId: 'excalibur'	,
-		bounce: false	
+		bounce: false	,
+		infoTip: 'Named for the mythical sword of King Arthur, it uses a Medieval theme',
+		infoTipActive: false
 	},
 	{
-		name: 'New York-New York Hotel & Casino',
+		name: 'New York-New York',
 		ll: { lat: 36.1017723, lng: -115.1745215},
 		photoId: 'newyork',
-		bounce: false
+		bounce: false,
+		infoTip: 'Has a 203 foot high roller coaster with a 144 foot drop',
+		infoTipActive: false
 	}
 ]
 class App extends Component {
@@ -57,24 +69,19 @@ class App extends Component {
 	}
 
 	updateFilter(filteredVenues) {
-		console.log('updating filtered')
 		this.setState({filteredMarkers: filteredVenues})
 	}
 	
-	// resetMap(){
-	// 	this.setState({reset: this.state.reset + 1})
-	// }
-
   render() {
     return (
-      <div className="main-container">
-        <div className="options-sidebar">
+      <div className='main-container'>
+        <div className='options-sidebar'>
 					<Options 
 						venueInfo={this.state.markers}
 						updateFilter={this.updateFilter.bind(this)}
 					/>
 				</div>
-				<div className="neighborhood-wrapper">
+				<div className='neighborhood-wrapper'>
 					<Map 
 						center={{lat: 36.1081458, lng: -115.172774}}
 						zoom={15}
