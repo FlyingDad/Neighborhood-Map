@@ -27,6 +27,7 @@ Browser capable of running ECMAScript 6 (ES6)
 - NPM [sort-by](https://www.npmjs.com/package/sort-by)
 - NPM [prop-types](https://www.npmjs.com/package/prop-types)
 - NPM [react-image-lightbox](https://www.npmjs.com/package/react-image-lightbox-expansion)
+- NPM [reactjs-mappletooltip](https://www.npmjs.com/package/reactjs-mappletooltip)
 
 
 ## Directions

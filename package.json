@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
+    "install": "^0.12.1",
+    "npm": "^6.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

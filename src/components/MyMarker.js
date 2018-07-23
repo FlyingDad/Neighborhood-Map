@@ -1,6 +1,6 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Marker, InfoWindow } from "react-google-maps"
+import { Marker, InfoWindow } from 'react-google-maps'
 import VenueLightbox from './Lightbox'
 
 class MyMarker extends Component {
@@ -39,14 +39,10 @@ class MyMarker extends Component {
 	}
 
   render() {
-		console.log('myMarker render')
 		let bounce = null
 		if(this.props.markerBounce){
-			console.log('setting bounce on')
 			bounce = window.google.maps.Animation.BOUNCE
-			console.log(bounce)
 		}
-		console.log('myMarker render', bounce)
 		const photoId = this.props.photoId
     return (
       <Marker
