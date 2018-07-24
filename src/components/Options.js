@@ -78,20 +78,22 @@ class Options extends Component {
           <input
             id='search'
             type='text'
-            placeholder='Search for venue'
+            placeholder='Filter venues'
             autoComplete='off'
             onChange={event => this.updateQuery(event.target.value)}
 						ref={this.queryInput}
 						aria-labelledby='searchbox'
           />
-					<button 
+					
+        </div>
+				<button 
 					id='reset-search' 
 					onClick={this.clearQuery}
-					aria-label='reset search'
+					aria-label='reset venue filter'
 					>
-            Reset
-          </button>
-        </div>
+            Reset Filter
+        </button>
+				<hr/>
         <div>
 					<div 
 						tabIndex='0' 
