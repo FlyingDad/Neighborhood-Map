@@ -13,8 +13,14 @@
 .options-sidebar {
   padding: 20px;
   color: azure;
-  width: 25%;
+  width: 20%;
   background-color: rgb(1, 0, 65);
+}
+
+hr {
+	border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 102, 255, 0.25), rgba(0, 102, 255, 0.75), rgba(0, 102, 255, 0.25));
 }
 
 #search {
@@ -22,10 +28,20 @@
   border-radius: 3px;
 }
 
+#searchbox {
+	margin-left: 8px;
+	margin-bottom: 5px;
+}
+
 #reset-search {
-  font-size: 0.8em;
-  margin-left: 15px;
-  border-radius: 3px;
+	font-size: 0.8em;
+	border-radius: 3px;
+	margin-left: 8px;
+	margin-bottom: 15px;
+	margin-top: -10px;
+	color: rgb(212, 212, 212);
+	background: #1853f5;
+	border: 1px solid rgb(10, 139, 148);
 }
 
 .venue {
@@ -64,15 +80,17 @@
 }
 
 .venue-info {
-  padding: 2px 3px;
-	margin-left: 230px;
-	margin-top: -33px;
-	width: 230px;
+	font-size: .9em;
+	margin: 10px 0;
+  padding: 4px 8px;
+	/* margin-left: 230px; */
+	/* margin-top: -33px; */
+	/* width: 230px; */
 	z-index: 10;
-  position: absolute;
-  background: #18f5d0;
-  border: 1px solid #023838;
-	color: #313131;
+  /* position: absolute; */
+  background: #05037991;
+  border: 1px solid #03407a;
+	color: #9ec3fa;
 	border-radius: 3px;
 }
 
@@ -91,7 +109,7 @@
 }
 
 .neighborhood-wrapper {
-  width: 75%;
+  width: 80%;
   height: 100%;
 }
 
@@ -115,4 +133,16 @@
 .google-api-error p{
 	font-size: 1.4em;
 	color: blue;
+}
+
+@media screen and (max-width: 992px) {
+	.options-sidebar {
+		width: 25%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.options-sidebar {
+		width: 30%;
+	}
 }
