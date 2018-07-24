@@ -8,6 +8,7 @@
     "npm": "^6.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
+    "react-async-script-loader": "^0.3.0",
     "react-dom": "^16.4.1",
     "react-google-maps": "^9.4.5",
     "react-image-lightbox": "^5.0.0",

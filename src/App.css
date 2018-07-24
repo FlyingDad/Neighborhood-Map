@@ -98,3 +98,21 @@
 .searchbox {
   margin-bottom: 20px;
 }
+
+.google-api-error {
+	margin: 50px auto;
+	padding: 15px 10px;
+	text-align: center;
+	background: rgb(188, 228, 247);
+	width: 50%;
+	border-radius: 5px;
+}
+
+.google-api-error h1{
+	color: rgb(255, 0, 0);
+}
+
+.google-api-error p{
+	font-size: 1.4em;
+	color: blue;
+}
