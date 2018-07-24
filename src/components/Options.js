@@ -70,14 +70,19 @@ class Options extends Component {
     Venues.sort(sortby('name'))
     return (
       <div>
-        <div className='searchbox'>
+				<div 
+					id='searchbox' 
+					className='searchbox'
+					aria-label='venue search/filter'
+					>
           <input
             id='search'
             type='text'
             placeholder='Search for venue'
             autoComplete='off'
             onChange={event => this.updateQuery(event.target.value)}
-            ref={this.queryInput}
+						ref={this.queryInput}
+						aria-labelledby='searchbox'
           />
 					<button 
 					id='reset-search' 
@@ -88,7 +93,9 @@ class Options extends Component {
           </button>
         </div>
         <div>
-          <div>
+					<div 
+						tabIndex='0' 
+						aria-label='list of venues'>
             {Venues.map((venue, index) => (
               <div key={index}>
 								<div>
