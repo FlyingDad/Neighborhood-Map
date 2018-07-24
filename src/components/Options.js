@@ -79,7 +79,11 @@ class Options extends Component {
             onChange={event => this.updateQuery(event.target.value)}
             ref={this.queryInput}
           />
-          <button id='reset-search' onClick={this.clearQuery}>
+					<button 
+					id='reset-search' 
+					onClick={this.clearQuery}
+					aria-label='reset search'
+					>
             Reset
           </button>
         </div>
