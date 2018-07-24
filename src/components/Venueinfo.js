@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 
 const VenueInfo = (props) => {
 	return (
-		<span 
+		<div 
 			className='venue-info'
 			tabIndex='0'
 			>
 			{props.venueInfo}
-		</span>
+		</div>
 	)
 }
 
