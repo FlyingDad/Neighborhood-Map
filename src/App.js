@@ -24,22 +24,21 @@ class App extends Component {
 	componentWillReceiveProps ({ isScriptLoaded, isScriptLoadSucceed }) {
     if (isScriptLoaded && !this.props.isScriptLoaded) { // load finished
       if (isScriptLoadSucceed) {
+				// If Google API loaded ok, display app
 				this.setState({googleApiSuccess: true});
-				//this.initEditor()
-				console.log('load success')
-      }
-			else ///this.props.onError() 
-			console.log('load failure')
+			} else
+			// Error component will display because we keep googleApiSuccess false 
+			console.log('Google API load failure')
     }
   }
  
-  componentDidMount () {
-    const { isScriptLoaded, isScriptLoadSucceed } = this.props
-    if (isScriptLoaded && isScriptLoadSucceed) {
-			//this.initEditor()
-			console.log('comp did mount script loaded')
-    }
-  }
+  // componentDidMount () {
+  //   const { isScriptLoaded, isScriptLoadSucceed } = this.props
+  //   if (isScriptLoaded && isScriptLoadSucceed) {
+	// 		//this.initEditor()
+	// 		console.log('comp did mount script loaded')
+  //   }
+  // }
 
 
 	updateFilter(filteredVenues) {
@@ -56,9 +55,11 @@ class App extends Component {
 						updateFilter={this.updateFilter.bind(this)}
 					/>
 				</aside>
-				<section className='neighborhood-wrapper'>
+				<section 
+				className='neighborhood-wrapper'
+				role='application'
+				>
 					<Map 
-						role='application'
 						center={{lat: 36.1081458, lng: -115.172774}}
 						zoom={15}
 						containerElement={<div style={{ height: `100%`, width: `100%`  }}/>}
