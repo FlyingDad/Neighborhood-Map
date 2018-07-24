@@ -42,11 +42,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     * On the command line run 'npm install -g serve'
     * On the command line run 'react-scripts build'
     * On the command line run 'serve -s build'
+    * **Note you have previously run a production build, you may need to clear your browswer cache to see the changes made in the dev build**
 4. On the command line, navigate to the projects root folder and 'npm start'
 5. The console will tell you what port to use, usually localhost:5000 
 6. Navigate your browser to that address and the App will run.
 7. To run the dev build, simply run 'npm start' after step 2
-    * Note: The dev version will NOT have a service worker to cache the site
+    * **Note: The dev version will NOT have a service worker to cache the site**
 
 		
 ## Contributing
