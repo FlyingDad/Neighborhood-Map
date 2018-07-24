@@ -8,8 +8,8 @@ This React.js App is a single page App. It dispplays a customized Google Map dis
 
 - [Requirements](#requirements)
 - [Dependencies](#dependencies)
-- [Directions](#directions)
 - [Create React APP](#Create-React-App)
+- [Directions](#directions)
 - [Contributing](#contributing)
 
 ## Requirements
